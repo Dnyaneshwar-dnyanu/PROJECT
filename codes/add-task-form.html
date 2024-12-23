@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Add New Task</title>
+     <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+     <div class="form_of_task">
+          <h1>Add New Task</h1>
+          <p>
+               &OpenCurlyDoubleQuote; Oraganize and manage your daily tasks efficiently. &CloseCurlyDoubleQuote;
+          </p>
+
+          <form action="backend.php">
+               <div class="input_block">
+                    <label for="task_name">Task Name :</label>
+                    <input type="text" id="task_name" required>
+               </div>
+
+               <div class="input_block">
+                    <label for="dead_time">Deadline (optional) :</label>
+                    <input type="date" value="deadline" id="dead_time">
+               </div>
+
+               <div class="input_block set_reminder">
+                    <label for="setReminder"><input type="checkbox" id="setReminder" value="Set reminder"> Set
+                         Reminder</label>
+               </div>
+
+               <div id="reminderFields" class="hidden input_block">
+                    <label for="reminder-date">Date : </label>
+                    <input type="date" id="reminder-date" value="reminder-date">
+                    <label for="reminder-time">Time : </label>
+                    <input type="time" id="reminder-time">
+               </div>
+
+               <div class="input_block">
+                    <label for="priority">Priority :</label>
+                    <label for="priority-high"><input type="radio" id="priority-high" value="priority" name="Priority">
+                         High</label>
+                    <label for="priority-medium"><input type="radio" id="priority-medium" value="priority"
+                              name="Priority"> Low</label>
+                    <label for="priority-low"><input type="radio" id="priority-low" value="priority" name="Priority">
+                         Medium</label>
+               </div>
+
+               <div class="input_block submit-button">
+                    <button type="submit">Submit</button>
+               </div>
+          </form>
+     </div>
+
+     <script>
+          const setReminderCheckbox = document.getElementById('setReminder');
+          const reminderFields =  document.getElementById('reminderFields');
+
+          setReminderCheckbox.addEventListener('change', () => {
+               reminderFields.classList.toggle('hidden', !setReminderCheckbox.checked);
+          });
+     </script>
+</body>
+
+</html>
